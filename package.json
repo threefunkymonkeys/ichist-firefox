@@ -1,0 +1,16 @@
+{
+  "title": "IChist for Firefox",
+  "name": "ichist-firefox",
+  "version": "0.0.1",
+  "description": "IChist add-on",
+  "main": "index.js",
+  "author": "Leonardo Mateo <kandalf@threefunkymonkeys.com>",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

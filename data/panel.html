@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style>
+      h1 {
+        width: 100%;
+        text-align: center;
+      }
+
+      #content > a {
+        display: block;
+        padding: 5px 5px;
+        border-bottom: 1px solid gray;
+        color: #212F3F;
+        text-decoration: none; }
+
+      #actions {
+        width: 100%;
+        padding-top: 10px;
+      }
+       
+        #actions > #create-chist-button, #actions > #chat-format {
+          width: 48%;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <img class='logo' src="chist.png" width="48" height="48">
+    </h1>
+    <div id="content">
+      Loading Chists...
+    </div>
+    <br/>
+    <div id="new-chist">
+      <div id="actions">
+        <select id="chat-format">
+          <option value="none">Format</option>
+          <option value="irc">IRC - Default</option>
+          <option value="limechat">Limechat - Default</option>
+          <option value="limechatsample">Limechat - Sample</option>
+          <option value="colloquy">Colloquy - Default</option>
+          <option value="skype">Skype</option>
+          <option selected="selected" value="slack">Slack - Web</option>
+        </select>
+        <button id="create-chist-button">Create new chist</button>
+      </div>
+    </div>
+  </body>
+</html>

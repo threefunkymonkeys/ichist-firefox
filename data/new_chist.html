@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+      #new-chist > #chist-raw {
+        width: 100%;
+        height:200px;
+      }
+
+      #new-chist > #chist-title, #new-chist > #chat-format {
+        width: 49%;
+      }
+
+      #new-chist > #chist-raw {
+        margin-top: 10px;
+      }
+
+      #actions {
+        width: 100%;
+        padding-top: 10px;
+        text-align: center;
+      }
+       
+        #actions > button {
+          padding: 10px 5px;
+          min-width: 70px;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="new-chist">
+      <input type="text" id="chist-title" placeholder="Title"></input>
+      <select id="chat-format">
+        <option value="none">Format</option>
+        <option value="irc">IRC - Default</option>
+        <option value="limechat">Limechat - Default</option>
+        <option value="limechatsample">Limechat - Sample</option>
+        <option value="colloquy">Colloquy - Default</option>
+        <option value="skype">Skype</option>
+        <option selected="selected" value="slack">Slack - Web</option>
+      </select>
+      <input type="checkbox" id="chist-public"></input>
+      <label>Public</label>
+      <textarea id="chist-raw" placeholder="Paste your chat here..."></textarea>
+      <div id="actions">
+        <button id="save-chist" disabled>Save</button>
+        <button id="cancel-chist">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
