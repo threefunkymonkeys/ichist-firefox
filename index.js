@@ -1,8 +1,10 @@
 var { ToggleButton } = require('sdk/ui/button/toggle');
-var panels = require("sdk/panel");
-var tabs = require("sdk/tabs");
-var Request = require("sdk/request").Request;
-var self = require("sdk/self");
+var panels           = require("sdk/panel");
+var tabs             = require("sdk/tabs");
+var Request          = require("sdk/request").Request;
+var self             = require("sdk/self");
+var ss               = require("sdk/simple-storage");
+var chist_client     = null;
 
 IChistClient = function(api_key) {
   this.key = api_key;
@@ -39,8 +41,6 @@ IChistClient.prototype.createChist = function(data, callback) {
   chist.post();
 }
 
-var client = new IChistClient("dc37c1f0cbd35ade26339999833d669156b4b25c8c88b193");
-
 var button = ToggleButton({
   id: "chist-button",
   label: "IChist",
@@ -63,13 +63,38 @@ var newChistPanel = panels.Panel({
   contentScriptFile: self.data.url("new_chist.js")
 });
 
-function handleChange(state) {
-  if (state.checked) {
+var settingsPanel = panels.Panel({
+  contentURL: self.data.url("settings.html"),
+  contentScriptFile: self.data.url("settings.js"),
+  onHide: handleHide
+});
+
+function showMainPanel() {
     panel.show({
       position: button,
-      width: 300,
+      width: 350,
       height: 250
     });
+}
+
+function showSettingsPanel() {
+  settingsPanel.show({
+    position: button,
+    width: 200,
+    height: 250
+  });
+}
+
+//"dc37c1f0cbd35ade26339999833d669156b4b25c8c88b193"
+function handleChange(state) {
+  if (state.checked) {
+    if (ss.storage.chist_api_key) {
+      chist_client = new IChistClient(ss.storage.chist_api_key);
+
+      showMainPanel();
+    } else {
+      showSettingsPanel();
+    }
   }
 }
 
@@ -78,7 +103,7 @@ function handleHide() {
 }
 
 panel.on("show", function() {
-  client.getChists(function(status, chists){
+  chist_client.getChists(function(status, chists){
     if (status == 200) {
       panel.port.emit("chists-loaded", chists); 
     } else {
@@ -102,7 +127,7 @@ panel.port.on("new-chist", function(format) {
 
 
 newChistPanel.port.on("create-chist", function(title, chist, format, isPublic){
-  client.createChist({
+  chist_client.createChist({
                        title: title,
                        chist: chist,
                        format: format,
