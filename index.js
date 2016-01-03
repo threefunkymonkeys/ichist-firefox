@@ -146,3 +146,10 @@ newChistPanel.port.on("create-chist", function(title, chist, format, isPublic){
 newChistPanel.port.on("hide-panel", function() {
   newChistPanel.hide();
 });
+
+settingsPanel.port.on("save-key", function(key) {
+  ss.storage.chist_api_key = key;
+  chist_client = new IChistClient(ss.storage.chist_api_key);
+  settingsPanel.hide();
+  showMainPanel();
+});

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style type="text/css" media="screen">
+      h1, #actions {
+        width: 100%;
+        text-align: center;
+      }
+
+      #actions {
+        margin: 20px 0px;
+      }
+
+      #actions > button {
+        padding: 10px 5px;
+        min-width: 70px;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <img class='logo' src="chist.png" width="48" height="48">
+    </h1>
+    <div id="settings">
+      <label>API Key</label>
+      <input type="text" id="api-key">
+      <div id="actions">
+        <button id="save-settings">Save</button>
+        <button id="cancel-settings">Cancel</button>
+      </div>
+    </div>
+    <div id="instructions">
+      You need an API key from <a href="https://ichist.com">ichist.com</a> in order to use this add-on.<br/>
+      If you don't have any, go ahead and create one from your <a href="https://ichist.com/users/edit">profile.</a>
+    </div>
+  </body>
+</html>
