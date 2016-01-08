@@ -18,5 +18,13 @@ saveButton.addEventListener("click", function(event) {
   self.port.emit("save-key", apiKeyField.value);
 });
 
+apiKeyField.addEventListener("keyup", function(event) {
+  if (event.keyCode == 13 && event.target.value != "") {
+    saveButton.focus();
+  } else {
+    saveButton.disabled = (apiKeyField.value == "");
+  }
+});
+
 ichistLink.addEventListener("click", handleLinks);
 profileLink.addEventListener("click", handleLinks);

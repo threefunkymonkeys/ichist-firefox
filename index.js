@@ -149,10 +149,12 @@ newChistPanel.port.on("hide-panel", function() {
 });
 
 settingsPanel.port.on("save-key", function(key) {
-  ss.storage.chist_api_key = key;
-  chist_client = new IChistClient(ss.storage.chist_api_key);
-  settingsPanel.hide();
-  showMainPanel();
+  if (key != "") {
+    ss.storage.chist_api_key = key;
+    chist_client = new IChistClient(ss.storage.chist_api_key);
+    settingsPanel.hide();
+    showMainPanel();
+  }
 });
 
 settingsPanel.port.on("hide-settings", function() {
