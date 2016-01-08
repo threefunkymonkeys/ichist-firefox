@@ -118,6 +118,7 @@ panel.port.on("open-chist", function(url) {
 
 panel.port.on("new-chist", function(format) {
   newChistPanel.show({
+    position: button,
     width: 500,
     height: 300
   });
