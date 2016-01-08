@@ -153,3 +153,11 @@ settingsPanel.port.on("save-key", function(key) {
   settingsPanel.hide();
   showMainPanel();
 });
+
+settingsPanel.port.on("hide-settings", function() {
+  settingsPanel.hide();
+});
+
+settingsPanel.port.on("open-link", function(href) {
+  tabs.open(href);
+});
