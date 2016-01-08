@@ -1,0 +1,42 @@
+#settings h1, #settings #actions {
+  width: 100%;
+  text-align: center;
+}
+
+#settings #actions {
+  margin: 20px 0px;
+}
+
+#settings #actions > button {
+  padding: 10px 5px;
+  min-width: 70px;
+}
+
+#settings input {
+  width: 100%;
+  margin-top: 5px;
+}
+
+#new-chist > #chist-raw {
+  width: 100%;
+  height:200px;
+}
+
+#new-chist > #chist-title, #new-chist > #chat-format {
+  width: 49%;
+}
+
+#new-chist > #chist-raw {
+  margin-top: 10px;
+}
+
+#new-chist #actions {
+  width: 100%;
+  padding-top: 10px;
+  text-align: center;
+}
+  
+  #new-chist #actions > button {
+    padding: 10px 5px;
+    min-width: 70px;
+  }
