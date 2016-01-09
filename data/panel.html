@@ -6,6 +6,10 @@
         text-align: center;
       }
 
+      #content {
+        min-height: 70px;
+      }
+
       #content > a {
         display: block;
         padding: 5px 5px;
@@ -13,13 +17,19 @@
         color: #212F3F;
         text-decoration: none; }
 
-      #actions {
+      #toolbar > #actions {
         width: 100%;
         padding-top: 10px;
       }
        
-        #actions > #create-chist-button, #actions > #chat-format {
+        #toolbar > #actions > #create-chist-button,
+        #toolbar > #actions > #chat-format {
           width: 48%;
+        }
+
+        #toolbar > #actions > #settings-button {
+          float: right;
+          margin: 20px 10px;
         }
     </style>
   </head>
@@ -43,6 +53,7 @@
           <option selected="selected" value="slack">Slack - Web</option>
         </select>
         <button id="create-chist-button">Create new chist</button>
+        <a href="#" id="settings-button">Settings...</a>
       </div>
     </div>
   </body>
