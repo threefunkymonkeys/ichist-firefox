@@ -103,11 +103,11 @@ function handleHide() {
 }
 
 panel.on("show", function() {
-  chist_client.getChists(function(status, chists){
+  chist_client.getChists(function(status, response){
     if (status == 200) {
-      panel.port.emit("chists-loaded", chists); 
+      panel.port.emit("chists-loaded", response);
     } else {
-      panel.port.emit("error", status, chists);
+      panel.port.emit("error", status, response);
     }
   });
 });
