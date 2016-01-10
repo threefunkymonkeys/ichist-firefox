@@ -73,7 +73,7 @@ function showMainPanel() {
     panel.show({
       position: button,
       width: 350,
-      height: 250
+      height: 270
     });
 }
 
@@ -105,6 +105,7 @@ function handleHide() {
 panel.on("show", function() {
   chist_client.getChists(function(status, response){
     if (status == 200) {
+      panel.port.emit("success");
       panel.port.emit("chists-loaded", response);
     } else {
       panel.port.emit("error", status, response);
@@ -126,6 +127,10 @@ panel.port.on("new-chist", function(format) {
   newChistPanel.port.emit("new-chist", format);
 });
 
+panel.port.on("open-settings", function() {
+  panel.hide();
+  showSettingsPanel();
+});
 
 newChistPanel.port.on("create-chist", function(title, chist, format, isPublic){
   chist_client.createChist({
