@@ -1,5 +1,5 @@
 var content = document.getElementById("content");
-var linkTpl = "<a id='{{ chist-id }}' href='http://localhost:9393{{ chist-url }}' target='_blank'>{{ chist-title }}</a>";
+var linkTpl = "<a id='{{ chist-id }}' href='https://ichist.com{{ chist-url }}' target='_blank'>{{ chist-title }}</a>";
 var newChistButton = document.getElementById("create-chist-button");
 var settingsLink = document.getElementById("settings-link");
 

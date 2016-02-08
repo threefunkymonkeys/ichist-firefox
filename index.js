@@ -8,7 +8,7 @@ var chist_client     = null;
 
 IChistClient = function(api_key) {
   this.key = api_key;
-  this.URL = "http://localhost:9393";
+  this.URL = "https://ichist.com";
 }
 
 IChistClient.prototype.getChists = function(callback) {
