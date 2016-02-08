@@ -50,6 +50,7 @@ self.port.on("chist-created", function(chist) {
   addLink(chist);
   var link = document.getElementById(chist["id"]);
   link.addEventListener("click", openChist);
+  self.port.emit("open-chist", chist.url);
 });
 
 self.port.on("error", function(status, error) {
